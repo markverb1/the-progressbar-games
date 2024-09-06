@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgfhgxdrxs35k"]
+[gd_scene load_steps=9 format=3 uid="uid://bgfhgxdrxs35k"]
 
 [ext_resource type="Theme" uid="uid://bxxmvhyvvqb6e" path="res://other/theme.tres" id="1_f0x4i"]
 [ext_resource type="Script" path="res://data.gd" id="2_p82ps"]
 [ext_resource type="Script" path="res://teams.gd" id="3_4q0yf"]
 [ext_resource type="Script" path="res://members.gd" id="4_0wmef"]
 [ext_resource type="Script" path="res://attributes.gd" id="5_8e7rr"]
+[ext_resource type="Texture2D" uid="uid://dp2t3pmuwl8e7" path="res://images/gender/female.png" id="6_bhwmn"]
+[ext_resource type="Texture2D" uid="uid://cojd8eyarf0qf" path="res://images/gender/other.png" id="7_4yrry"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tbs1y"]
+load_path = "res://.godot/imported/male.png-a668c7da8e8accec36dd3f15a84163ff.ctex"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -167,77 +172,11 @@ offset_top = 5.0
 offset_right = 598.0
 offset_bottom = 311.0
 
-[node name="Attributes" type="Control" parent="Tabs/TabContainer" node_paths=PackedStringArray("freaky_button", "item_list", "control", "checkbox", "lineedit", "textedit", "spinbox", "dropdown")]
+[node name="Attributes" type="Control" parent="Tabs/TabContainer" node_paths=PackedStringArray("freaky_button", "control")]
 layout_mode = 2
 script = ExtResource("5_8e7rr")
 freaky_button = NodePath("Freaky")
-item_list = NodePath("ItemList")
-control = NodePath("Control")
-checkbox = NodePath("Control/CheckBox")
-lineedit = NodePath("Control/LineEdit")
-textedit = NodePath("Control/TextEdit")
-spinbox = NodePath("Control/SpinBox")
-dropdown = NodePath("Control/OptionButton")
-
-[node name="ItemList" type="ItemList" parent="Tabs/TabContainer/Attributes"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 170.0
-offset_bottom = 271.0
-
-[node name="Label" type="Label" parent="Tabs/TabContainer/Attributes"]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 253.0
-offset_right = 270.0
-offset_bottom = 270.0
-text = "Type: Boolean"
-
-[node name="Control" type="Control" parent="Tabs/TabContainer/Attributes"]
-anchors_preset = 0
-offset_left = 176.0
-offset_top = 13.0
-offset_right = 582.0
-offset_bottom = 245.0
-metadata/_edit_lock_ = true
-
-[node name="LineEdit" type="LineEdit" parent="Tabs/TabContainer/Attributes/Control"]
-layout_mode = 0
-offset_right = 406.0
-offset_bottom = 21.0
-
-[node name="TextEdit" type="TextEdit" parent="Tabs/TabContainer/Attributes/Control"]
-layout_mode = 0
-offset_right = 407.0
-offset_bottom = 233.0
-
-[node name="CheckBox" type="CheckBox" parent="Tabs/TabContainer/Attributes/Control"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 9.0
-offset_right = 27.0
-offset_bottom = 25.0
-text = "this is text for the check button.
-goog joj on finding this.
-uhhh idk what to write here.
-hehehahahdhqwhufhgiuhuhu
-if you see this while playing something has gone horribly wrong"
-
-[node name="SpinBox" type="SpinBox" parent="Tabs/TabContainer/Attributes/Control"]
-layout_mode = 0
-offset_right = 403.0
-offset_bottom = 21.0
-
-[node name="OptionButton" type="OptionButton" parent="Tabs/TabContainer/Attributes/Control"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = -1.0
-offset_right = 397.0
-offset_bottom = 18.0
-item_count = 1
-popup/item_0/text = "data.members[\"markverb1\"][\"species\"] = Species.PROTOGEN"
-popup/item_0/id = 0
+control = NodePath("")
 
 [node name="Freaky" type="Button" parent="Tabs/TabContainer/Attributes"]
 layout_mode = 0
@@ -246,6 +185,62 @@ offset_top = 252.0
 offset_right = 586.0
 offset_bottom = 276.0
 text = "freaky button 👅"
+
+[node name="Panel" type="Panel" parent="Tabs/TabContainer/Attributes"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 584.0
+offset_bottom = 243.0
+
+[node name="Name" type="LineEdit" parent="Tabs/TabContainer/Attributes/Panel"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 29.0
+placeholder_text = "Joe Mama"
+
+[node name="Control" type="Control" parent="Tabs/TabContainer/Attributes/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameLabel" type="Label" parent="Tabs/TabContainer/Attributes/Panel/Control"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 54.0
+offset_bottom = 27.0
+text = "Name"
+
+[node name="GenderLabel" type="Label" parent="Tabs/TabContainer/Attributes/Panel/Control"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 43.0
+offset_right = 62.0
+offset_bottom = 60.0
+text = "Gender"
+
+[node name="OptionButton" type="OptionButton" parent="Tabs/TabContainer/Attributes/Panel"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 35.0
+offset_right = 214.0
+offset_bottom = 71.0
+item_count = 3
+popup/item_0/text = "Male"
+popup/item_0/icon = SubResource("CompressedTexture2D_tbs1y")
+popup/item_0/id = 0
+popup/item_1/text = "Female"
+popup/item_1/icon = ExtResource("6_bhwmn")
+popup/item_1/id = 1
+popup/item_2/text = "Other/IDK"
+popup/item_2/icon = ExtResource("7_4yrry")
+popup/item_2/id = 2
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
@@ -265,6 +260,4 @@ offset_bottom = 642.0
 [connection signal="toggled" from="Members/DangerTick" to="Members" method="_on_danger_tick_toggled"]
 [connection signal="pressed" from="Members/RemoveAllMembers" to="Members" method="_on_remove_all_members_pressed"]
 [connection signal="value_changed" from="Members/SpinBox" to="Members" method="_on_spin_box_value_changed"]
-[connection signal="item_selected" from="Tabs/TabContainer/Attributes/ItemList" to="Tabs/TabContainer/Attributes" method="_on_item_list_item_selected"]
-[connection signal="text_changed" from="Tabs/TabContainer/Attributes/Control/LineEdit" to="Tabs/TabContainer/Attributes" method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="Tabs/TabContainer/Attributes/Freaky" to="Tabs/TabContainer/Attributes" method="_on_freaky_pressed"]
