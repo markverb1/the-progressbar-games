@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgfhgxdrxs35k"]
+[gd_scene load_steps=16 format=3 uid="uid://bgfhgxdrxs35k"]
 
 [ext_resource type="Theme" uid="uid://bxxmvhyvvqb6e" path="res://other/theme.tres" id="1_f0x4i"]
 [ext_resource type="Script" path="res://data.gd" id="2_p82ps"]
@@ -7,6 +7,13 @@
 [ext_resource type="Script" path="res://attributes.gd" id="5_8e7rr"]
 [ext_resource type="Texture2D" uid="uid://dp2t3pmuwl8e7" path="res://images/gender/female.png" id="6_bhwmn"]
 [ext_resource type="Texture2D" uid="uid://cojd8eyarf0qf" path="res://images/gender/other.png" id="7_4yrry"]
+[ext_resource type="Texture2D" uid="uid://c2gkvgoc4gp16" path="res://images/species/person.png" id="8_xq1cc"]
+[ext_resource type="Texture2D" uid="uid://bkjmqf5tm7bir" path="res://images/species/catperson.png" id="9_sprcg"]
+[ext_resource type="Texture2D" uid="uid://dnnu82chyhdiy" path="res://images/species/furry.png" id="10_uhk35"]
+[ext_resource type="Texture2D" uid="uid://dgohcvosvnhwf" path="res://images/species/proto.png" id="11_apkt5"]
+[ext_resource type="Texture2D" uid="uid://dwn8muokpri56" path="res://images/species/synth.png" id="12_b4y8u"]
+[ext_resource type="Texture2D" uid="uid://b5y4eejc45hwb" path="res://images/species/unknown.png" id="13_waw1w"]
+[ext_resource type="Texture2D" uid="uid://c77m8g6wcguak" path="res://images/species/abomination.png" id="14_36d1v"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tbs1y"]
 load_path = "res://.godot/imported/male.png-a668c7da8e8accec36dd3f15a84163ff.ctex"
@@ -193,14 +200,6 @@ offset_top = 8.0
 offset_right = 584.0
 offset_bottom = 243.0
 
-[node name="Name" type="LineEdit" parent="Tabs/TabContainer/Attributes/Panel"]
-layout_mode = 0
-offset_left = 69.0
-offset_top = 8.0
-offset_right = 216.0
-offset_bottom = 29.0
-placeholder_text = "Joe Mama"
-
 [node name="Control" type="Control" parent="Tabs/TabContainer/Attributes/Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -220,16 +219,24 @@ text = "Name"
 [node name="GenderLabel" type="Label" parent="Tabs/TabContainer/Attributes/Panel/Control"]
 layout_mode = 0
 offset_left = 13.0
-offset_top = 43.0
+offset_top = 44.0
 offset_right = 62.0
-offset_bottom = 60.0
+offset_bottom = 61.0
 text = "Gender"
 
-[node name="OptionButton" type="OptionButton" parent="Tabs/TabContainer/Attributes/Panel"]
+[node name="SpeciesLabel" type="Label" parent="Tabs/TabContainer/Attributes/Panel/Control"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 85.0
+offset_right = 63.0
+offset_bottom = 102.0
+text = "Species"
+
+[node name="Gender" type="OptionButton" parent="Tabs/TabContainer/Attributes/Panel"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 35.0
-offset_right = 214.0
+offset_right = 216.0
 offset_bottom = 71.0
 item_count = 3
 popup/item_0/text = "Male"
@@ -241,6 +248,59 @@ popup/item_1/id = 1
 popup/item_2/text = "Other/IDK"
 popup/item_2/icon = ExtResource("7_4yrry")
 popup/item_2/id = 2
+
+[node name="Species" type="OptionButton" parent="Tabs/TabContainer/Attributes/Panel"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 75.0
+offset_right = 216.0
+offset_bottom = 111.0
+item_count = 7
+popup/item_0/text = "Human"
+popup/item_0/icon = ExtResource("8_xq1cc")
+popup/item_0/id = 0
+popup/item_1/text = "Catperson"
+popup/item_1/icon = ExtResource("9_sprcg")
+popup/item_1/id = 1
+popup/item_2/text = "Furry"
+popup/item_2/icon = ExtResource("10_uhk35")
+popup/item_2/id = 2
+popup/item_3/text = "Protogen"
+popup/item_3/icon = ExtResource("11_apkt5")
+popup/item_3/id = 3
+popup/item_4/text = "Synth"
+popup/item_4/icon = ExtResource("12_b4y8u")
+popup/item_4/id = 4
+popup/item_5/text = "Unknown"
+popup/item_5/icon = ExtResource("13_waw1w")
+popup/item_5/id = 5
+popup/item_6/text = "Abomination"
+popup/item_6/icon = ExtResource("14_36d1v")
+popup/item_6/id = 6
+
+[node name="SpeciesLabel" type="Label" parent="Tabs/TabContainer/Attributes/Panel/Species"]
+offset_left = -59.0
+offset_top = 50.0
+offset_right = -8.0
+offset_bottom = 67.0
+text = "Team"
+
+[node name="Species" type="OptionButton" parent="Tabs/TabContainer/Attributes/Panel/Species"]
+offset_top = 40.0
+offset_right = 145.0
+offset_bottom = 76.0
+item_count = 1
+allow_reselect = true
+popup/item_0/text = "No Team"
+popup/item_0/id = 0
+
+[node name="Name" type="LineEdit" parent="Tabs/TabContainer/Attributes/Panel"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 4.0
+offset_right = 216.0
+offset_bottom = 31.0
+placeholder_text = "Joe Mama"
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
